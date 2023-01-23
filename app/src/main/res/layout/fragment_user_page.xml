@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserPageFragment"
+
+
+    >
+
+    <Button
+        android:id="@+id/button_planai"
+        android:layout_width="105dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="56dp"
+        android:text="Planai"
+
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_treniruotes"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="56dp"
+        android:text="Treniruotės"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_pratimai"
+        app:layout_constraintStart_toEndOf="@+id/button_planai"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_pratimai"
+        android:layout_width="89dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="56dp"
+        android:text="Pratimai"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_treneriai"
+        app:layout_constraintStart_toEndOf="@+id/button_treniruotes"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_treneriai"
+        android:layout_width="122dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="56dp"
+        android:text="Treneriai"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_pratimai"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
