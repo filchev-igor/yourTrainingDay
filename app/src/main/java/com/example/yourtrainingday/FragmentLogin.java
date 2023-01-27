@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,7 +20,6 @@ import retrofit2.Response;
 public class FragmentLogin extends Fragment {
     private EditText etUsername;
     private EditText etPassword;
-    private Button btnLogin;
     private FragmentLoginBinding binding;
 
     public FragmentLogin() {
@@ -40,7 +38,6 @@ public class FragmentLogin extends Fragment {
 
         etUsername = binding.editTextTextPersonName;
         etPassword = binding.editTextTextPassword;
-        btnLogin = binding.button;
 
         return binding.getRoot();
     }
@@ -51,6 +48,8 @@ public class FragmentLogin extends Fragment {
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Toast.makeText(getActivity(), "4222222222", Toast.LENGTH_LONG).show();
+                //Snackbar.make(view, "76543q", Snackbar.LENGTH_LONG).show();
                 getAccessToken();
             }
         });
@@ -63,7 +62,6 @@ public class FragmentLogin extends Fragment {
 
         etUsername = null;
         etPassword = null;
-        btnLogin = null;
     }
 
     public void getAccessToken() {
@@ -83,19 +81,23 @@ public class FragmentLogin extends Fragment {
         call.enqueue(new Callback<AccessToken>() {
             @Override
             public void onResponse(@NonNull Call<AccessToken> call, @NonNull Response<AccessToken> response) {
+                Toast.makeText(getActivity(), "tryukl;ogf", Toast.LENGTH_LONG).show();
+
                 if (response.isSuccessful()) {
+                    Toast.makeText(getActivity(), "6666666", Toast.LENGTH_LONG).show();
+
                     //AccessToken accessToken = response.body();
                     Intent intent = new Intent(getActivity(), SecondFragment.class);
                     FragmentLogin.this.startActivity(intent);
                 }
                 else {
-                    Toast.makeText(getActivity(), "Error:", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "onResponse error:", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<AccessToken> call, @NonNull Throwable t) {
-                Toast.makeText(getActivity(), "Error:", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "onFailure error:", Toast.LENGTH_LONG).show();
             }
         });
     }
