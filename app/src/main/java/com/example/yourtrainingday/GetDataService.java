@@ -7,7 +7,7 @@ import retrofit2.http.POST;
 
 public interface GetDataService {
     @FormUrlEncoded
-    @POST("/realms/Android-demo/protocol/openid-connect/token")
+    @POST("/realms/demo/protocol/openid-connect/token")
     Call<AccessToken> getAccessToken(
       @Field("client_id") String client_id,
       @Field("grant_type") String grant_type,
@@ -15,6 +15,5 @@ public interface GetDataService {
       @Field("scope") String scope,
       @Field("username") String username,
       @Field("password") String password
-
     );
 }

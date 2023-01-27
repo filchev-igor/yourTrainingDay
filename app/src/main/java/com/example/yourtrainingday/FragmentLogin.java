@@ -73,7 +73,7 @@ public class FragmentLogin extends Fragment {
         Call<AccessToken> call = service.getAccessToken(
                 "Login",
                 "password",
-                "Wyf8BSiIxWdlcsrs2i6eeLsF95AS0l0x",
+                "kOETUEGYPx7a3wDOuf2emGlF4MqFwv4Q",
                 "openid",
                 username,
                 password
@@ -81,12 +81,8 @@ public class FragmentLogin extends Fragment {
         call.enqueue(new Callback<AccessToken>() {
             @Override
             public void onResponse(@NonNull Call<AccessToken> call, @NonNull Response<AccessToken> response) {
-                Toast.makeText(getActivity(), "tryukl;ogf", Toast.LENGTH_LONG).show();
-
                 if (response.isSuccessful()) {
-                    Toast.makeText(getActivity(), "6666666", Toast.LENGTH_LONG).show();
-
-                    //AccessToken accessToken = response.body();
+                     //AccessToken accessToken = response.body();
                     Intent intent = new Intent(getActivity(), SecondFragment.class);
                     FragmentLogin.this.startActivity(intent);
                 }
