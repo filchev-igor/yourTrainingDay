@@ -9,7 +9,7 @@
         android:name="com.example.yourtrainingday.FragmentLogin"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
-    <fragment
+
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.example.yourtrainingday.FirstFragment"
