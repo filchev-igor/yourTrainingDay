@@ -65,10 +65,10 @@ public class FragmentLogin extends Fragment {
         String password = etPassword.getText().toString();
 
         Call<AccessToken> call1 = service.getAccessToken(
-                "Login",
-                "password",
-                "kOETUEGYPx7a3wDOuf2emGlF4MqFwv4Q",
-                "openid",
+                Constants.CLIENT_ID,
+                Constants.GRANT_TYPE,
+                Constants.CLIENT_SECRET,
+                Constants.SCOPE,
                 username,
                 password
         );
@@ -76,6 +76,9 @@ public class FragmentLogin extends Fragment {
             @Override
             public void onResponse(@NonNull Call<AccessToken> call, @NonNull Response<AccessToken> response) {
                 if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    Constants.REFRESH_TOKEN = response.body().getRefreshToken();
+
                     Fragment newFragment = new FirstFragment();
 
                     FragmentTransaction transaction = requireActivity()
