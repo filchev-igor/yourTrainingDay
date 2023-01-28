@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_userPageFragment_to_homePlanFragment"
             app:destination="@id/homePlanFragment" />
+        <action
+            android:id="@+id/action_userPageFragment_to_coachFragment"
+            app:destination="@id/coachFragment" />
     </fragment>
     <fragment
         android:id="@+id/planaiFragment"
@@ -46,6 +49,15 @@
         <action
             android:id="@+id/action_planaiFragment_to_userPageFragment"
             app:destination="@id/userPageFragment" />
+        <action
+            android:id="@+id/action_planaiFragment_to_coachFragment"
+            app:destination="@id/coachFragment" />
+        <action
+            android:id="@+id/action_planaiFragment_to_coachFragment2"
+            app:destination="@id/coachFragment" />
+        <action
+            android:id="@+id/action_planaiFragment_to_homePlanFragment2"
+            app:destination="@id/homePlanFragment" />
     </fragment>
     <fragment
         android:id="@+id/gymPlanFragment"
@@ -64,4 +76,13 @@
         android:name="com.example.yourtrainingday.HomePlanFragment"
         android:label="fragment_home_plan"
         tools:layout="@layout/fragment_home_plan" />
+    <fragment
+        android:id="@+id/coachFragment"
+        android:name="com.example.yourtrainingday.CoachFragment"
+        android:label="fragment_coach"
+        tools:layout="@layout/fragment_coach" >
+        <action
+            android:id="@+id/action_coachFragment_to_planaiFragment"
+            app:destination="@id/planaiFragment" />
+    </fragment>
 </navigation>

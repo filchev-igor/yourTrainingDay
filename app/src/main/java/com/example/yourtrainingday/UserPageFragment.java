@@ -33,7 +33,7 @@ public class UserPageFragment extends Fragment {
 
         binding.buttonTreneriai.setOnClickListener(view14 -> {
             NavHostFragment.findNavController(UserPageFragment.this)
-                .navigate(R.id.action_userPageFragment_to_planaiFragment);
+                .navigate(R.id.action_userPageFragment_to_coachFragment);
         });
     }
 
