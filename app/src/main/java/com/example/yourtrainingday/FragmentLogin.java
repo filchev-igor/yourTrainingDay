@@ -1,21 +1,16 @@
 package com.example.yourtrainingday;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.yourtrainingday.databinding.FragmentLoginBinding;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class FragmentLogin extends Fragment {
     private EditText etUsername;
@@ -45,14 +40,7 @@ public class FragmentLogin extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Toast.makeText(getActivity(), "4222222222", Toast.LENGTH_LONG).show();
-                //Snackbar.make(view, "76543q", Snackbar.LENGTH_LONG).show();
-                getAccessToken();
-            }
-        });
+        binding.button.setOnClickListener(view1 -> getAccessToken());
     }
 
     @Override
@@ -70,7 +58,36 @@ public class FragmentLogin extends Fragment {
         String username = etUsername.getText().toString();
         String password = etPassword.getText().toString();
 
-        Call<AccessToken> call = service.getAccessToken(
+
+        NavHostFragment
+                .findNavController(FragmentLogin.this)
+                .navigate(R.id.secondFragment);
+                //.setPopUpTo(findNavController().graph.startDestination, true).build());
+
+
+        /*
+        Fragment newFragment = new FirstFragment();
+
+        requireActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.nav_host_fragment_content_main, newFragment)
+                .setPrimaryNavigationFragment(newFragment)
+                .commit();
+
+         */
+
+                /*
+        NavHostFragment
+                .findNavController(FragmentLogin.this)
+                .navigate(R.id.action_fragmentLogin_to_secondFragment);
+
+                 */
+
+
+        /*
+        Call<AccessToken> call1 = service.getAccessToken(
                 "Login",
                 "password",
                 "kOETUEGYPx7a3wDOuf2emGlF4MqFwv4Q",
@@ -78,13 +95,13 @@ public class FragmentLogin extends Fragment {
                 username,
                 password
         );
-        call.enqueue(new Callback<AccessToken>() {
+        call1.enqueue(new Callback<AccessToken>() {
             @Override
             public void onResponse(@NonNull Call<AccessToken> call, @NonNull Response<AccessToken> response) {
                 if (response.isSuccessful()) {
-                     //AccessToken accessToken = response.body();
                     Intent intent = new Intent(getActivity(), SecondFragment.class);
-                    FragmentLogin.this.startActivity(intent);
+                    Intent intent2 = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent2);
                 }
                 else {
                     Toast.makeText(getActivity(), "onResponse error:", Toast.LENGTH_LONG).show();
@@ -92,9 +109,13 @@ public class FragmentLogin extends Fragment {
             }
 
             @Override
-            public void onFailure(@NonNull Call<AccessToken> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<AccessToken> call, @NonNull Throwable throwable) {
                 Toast.makeText(getActivity(), "onFailure error:", Toast.LENGTH_LONG).show();
+
+                call.cancel();
             }
         });
+
+         */
     }
 }
