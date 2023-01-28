@@ -79,7 +79,7 @@ public class FragmentLogin extends Fragment {
                     assert response.body() != null;
                     Constants.REFRESH_TOKEN = response.body().getRefreshToken();
 
-                    Fragment newFragment = new FirstFragment();
+                    Fragment newFragment = new UserPageFragment();
 
                     FragmentTransaction transaction = requireActivity()
                             .getSupportFragmentManager()

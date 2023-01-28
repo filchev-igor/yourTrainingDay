@@ -14,25 +14,12 @@
         android:id="@+id/FirstFragment"
         android:name="com.example.yourtrainingday.FirstFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_first"/>
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.example.yourtrainingday.SecondFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-        <action
-            android:id="@+id/action_SecondFragment_to_userPageFragment"
-            app:destination="@id/userPageFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_second"/>
     <fragment
         android:id="@+id/userPageFragment"
         android:name="com.example.yourtrainingday.UserPageFragment"
@@ -41,6 +28,12 @@
         <action
             android:id="@+id/action_userPageFragment_to_planaiFragment"
             app:destination="@id/planaiFragment" />
+        <action
+            android:id="@+id/action_userPageFragment_to_gymPlanFragment"
+            app:destination="@id/gymPlanFragment" />
+        <action
+            android:id="@+id/action_userPageFragment_to_homePlanFragment"
+            app:destination="@id/homePlanFragment" />
     </fragment>
     <fragment
         android:id="@+id/planaiFragment"
@@ -51,14 +44,21 @@
             android:id="@+id/action_planaiFragment_to_gymPlanFragment"
             app:destination="@id/gymPlanFragment" />
         <action
-            android:id="@+id/action_planaiFragment_to_homePlanFragment"
-            app:destination="@id/homePlanFragment" />
+            android:id="@+id/action_planaiFragment_to_userPageFragment"
+            app:destination="@id/userPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/gymPlanFragment"
         android:name="com.example.yourtrainingday.GymPlanFragment"
         android:label="fragment_gym_plan"
-        tools:layout="@layout/fragment_gym_plan" />
+        tools:layout="@layout/fragment_gym_plan" >
+        <action
+            android:id="@+id/action_gymPlanFragment_to_userPageFragment"
+            app:destination="@id/userPageFragment" />
+        <action
+            android:id="@+id/action_gymPlanFragment_to_homePlanFragment"
+            app:destination="@id/homePlanFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homePlanFragment"
         android:name="com.example.yourtrainingday.HomePlanFragment"
