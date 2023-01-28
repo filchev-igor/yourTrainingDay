@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.yourtrainingday.databinding.FragmentLoginBinding;
 
@@ -51,6 +51,7 @@ public class FragmentLogin extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+
         binding = null;
 
         etUsername = null;
@@ -62,33 +63,6 @@ public class FragmentLogin extends Fragment {
 
         String username = etUsername.getText().toString();
         String password = etPassword.getText().toString();
-
-
-        NavHostFragment
-                .findNavController(FragmentLogin.this)
-                .navigate(R.id.secondFragment);
-
-        /*
-        Fragment newFragment = new FirstFragment();
-
-        requireActivity()
-                .getSupportFragmentManager()
-                .beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.nav_host_fragment_content_main, newFragment)
-                .setPrimaryNavigationFragment(newFragment)
-                .commit();
-
-         */
-
-                /*
-        NavHostFragment
-                .findNavController(FragmentLogin.this)
-                .navigate(R.id.action_fragmentLogin_to_secondFragment);
-
-                 */
-
-
 
         Call<AccessToken> call1 = service.getAccessToken(
                 "Login",
@@ -102,9 +76,19 @@ public class FragmentLogin extends Fragment {
             @Override
             public void onResponse(@NonNull Call<AccessToken> call, @NonNull Response<AccessToken> response) {
                 if (response.isSuccessful()) {
-                    NavHostFragment
-                            .findNavController(FragmentLogin.this)
-                            .navigate(R.id.secondFragment);
+                    Fragment newFragment = new FirstFragment();
+
+                    FragmentTransaction transaction = requireActivity()
+                            .getSupportFragmentManager()
+                            .beginTransaction();
+                    transaction.replace(R.id.main_container, newFragment);
+                    transaction.setPrimaryNavigationFragment(newFragment);
+                    transaction.commit();
+
+                    binding.button.setVisibility(View.GONE);
+                    binding.editTextTextPersonName.setVisibility(View.GONE);
+                    binding.editTextTextPassword.setVisibility(View.GONE);
+
                 }
                 else {
                     Toast.makeText(getActivity(), "onResponse error:", Toast.LENGTH_LONG).show();
