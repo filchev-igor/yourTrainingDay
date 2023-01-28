@@ -11,59 +11,20 @@
 
     <Button
         android:id="@+id/button_planai"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="55dp"
+        android:layout_width="302dp"
+        android:layout_height="50dp"
 
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="38dp"
         android:text="Planai"
         android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_treniruotes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_treniruotes"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="44dp"
-        android:text="Treniruotės"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_pratimai"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_planai" />
-
-    <Button
-        android:id="@+id/button_pratimai"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="47dp"
-        android:text="Pratimai"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_treneriai"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_treniruotes" />
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="84dp" />
 
     <Button
         android:id="@+id/button_treneriai"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="318dp"
+        android:layout_width="302dp"
+        android:layout_height="50dp"
         android:text="Treneriai"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_pratimai" />
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="182dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

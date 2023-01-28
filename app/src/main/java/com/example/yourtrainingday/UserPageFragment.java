@@ -31,16 +31,6 @@ public class UserPageFragment extends Fragment {
                             .navigate(R.id.action_userPageFragment_to_planaiFragment);
         });
 
-        binding.buttonTreniruotes.setOnClickListener(view1 -> {
-            NavHostFragment.findNavController(UserPageFragment.this)
-                    .navigate(R.id.action_userPageFragment_to_planaiFragment);
-        });
-
-        binding.buttonPratimai.setOnClickListener(view13 -> {
-            NavHostFragment.findNavController(UserPageFragment.this)
-                .navigate(R.id.action_userPageFragment_to_planaiFragment);
-        });
-
         binding.buttonTreneriai.setOnClickListener(view14 -> {
             NavHostFragment.findNavController(UserPageFragment.this)
                 .navigate(R.id.action_userPageFragment_to_planaiFragment);
