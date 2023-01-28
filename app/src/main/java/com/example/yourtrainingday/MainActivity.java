@@ -1,13 +1,12 @@
 package com.example.yourtrainingday;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -34,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
-        //binding.button2.setVisibility(View.GONE);
-
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -45,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            logout();
+            logout(this);
         });
     }
 
@@ -78,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void logout() {
+    public void logout(Activity activity) {
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
         Call<ResponseBody> call = service.logout(Constants.CLIENT_ID, Constants.REFRESH_TOKEN, Constants.CLIENT_SECRET);
@@ -88,13 +85,10 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Constants.REFRESH_TOKEN = "";
 
-                    Fragment newFragment = new FragmentLogin();
 
-                    FragmentTransaction transaction = getSupportFragmentManager()
-                            .beginTransaction();
-                    transaction.replace(R.id.main_container, newFragment);
-                    transaction.setPrimaryNavigationFragment(newFragment);
-                    transaction.commit();
+                    NavController navController = Navigation.findNavController(activity, R.id.nav_host_fragment_content_main);
+                    navController.navigateUp();
+                    navController.navigate(R.id.fragmentLogin);
                 }
             }
 

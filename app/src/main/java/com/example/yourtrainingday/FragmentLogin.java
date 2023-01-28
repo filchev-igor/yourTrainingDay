@@ -45,24 +45,20 @@ public class FragmentLogin extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.button.setOnClickListener(view1 -> {
-            NavHostFragment.findNavController(FragmentLogin.this)
-                    .navigate(R.id.action_userPageFragment_to_planaiFragment);
-            //getAccessToken(FragmentLogin.this)
-        });
+        binding.button.setOnClickListener(view12 -> getAccessToken());
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
 
-        binding = null;
-
         etUsername = null;
         etPassword = null;
+
+        binding = null;
     }
 
-    public void getAccessToken(FragmentLogin fragmentLogin) {
+    public void getAccessToken() {
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
         String username = etUsername.getText().toString();
@@ -83,24 +79,8 @@ public class FragmentLogin extends Fragment {
                     assert response.body() != null;
                     Constants.REFRESH_TOKEN = response.body().getRefreshToken();
 
-                    NavHostFragment.findNavController(fragmentLogin)
-                            .navigate(R.id.action_userPageFragment_to_planaiFragment);
-
-                    /*
-                    Fragment newFragment = new UserPageFragment();
-
-                    FragmentTransaction transaction = requireActivity()
-                            .getSupportFragmentManager()
-                            .beginTransaction();
-                    transaction.replace(R.id.main_container, newFragment);
-                    transaction.setPrimaryNavigationFragment(newFragment);
-                    transaction.commit();
-
-                    binding.button.setVisibility(View.GONE);
-                    binding.editTextTextPersonName.setVisibility(View.GONE);
-                    binding.editTextTextPassword.setVisibility(View.GONE);
-
-                     */
+                    NavHostFragment.findNavController(FragmentLogin.this)
+                            .navigate(R.id.action_fragmentLogin_to_userPageFragment);
 
                 }
                 else {
