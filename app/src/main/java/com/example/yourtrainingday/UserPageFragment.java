@@ -26,15 +26,11 @@ public class UserPageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonPlanai.setOnClickListener(view12 -> {
-            NavHostFragment.findNavController(UserPageFragment.this)
-                            .navigate(R.id.action_userPageFragment_to_planaiFragment);
-        });
+        binding.buttonPlanai.setOnClickListener(view12 -> NavHostFragment.findNavController(UserPageFragment.this)
+                        .navigate(R.id.action_userPageFragment_to_planaiFragment));
 
-        binding.buttonTreneriai.setOnClickListener(view14 -> {
-            NavHostFragment.findNavController(UserPageFragment.this)
-                .navigate(R.id.action_userPageFragment_to_coachFragment);
-        });
+        binding.buttonTreneriai.setOnClickListener(view14 -> NavHostFragment.findNavController(UserPageFragment.this)
+            .navigate(R.id.action_userPageFragment_to_coachFragment));
     }
 
     @Override

@@ -27,13 +27,6 @@ public class SecondFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        binding.buttonGotouser.setOnClickListener(view1 -> {
-            //NavHostFragment.findNavController(SecondFragment.this)
-                   // .navigate(R.id.action_SecondFragment_to_userPageFragment);
-        });
-
-
     }
 
     @Override
@@ -41,5 +34,4 @@ public class SecondFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 }

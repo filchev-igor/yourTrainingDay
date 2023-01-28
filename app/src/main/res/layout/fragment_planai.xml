@@ -18,8 +18,8 @@
         android:layout_marginTop="56dp"
         android:layout_marginEnd="57dp"
         android:layout_marginBottom="35dp"
-        android:text="Planai"
-        android:textSize="10sp"
+        android:text="@string/planai"
+        android:textSize="11sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toStartOf="@+id/button_treneriai"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,8 +30,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="62dp"
-        android:text="Treneriai"
-        android:textSize="8sp"
+        android:text="@string/treneriai"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="@+id/button_planai"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_planai"
@@ -46,7 +46,8 @@
         android:src="@drawable/plangym"
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="@+id/button_planai"
-        app:layout_constraintTop_toBottomOf="@+id/button_planai" />
+        app:layout_constraintTop_toBottomOf="@+id/button_planai"
+        android:contentDescription="@string/todo" />
 
     <ImageButton
         android:id="@+id/imageView5"
@@ -57,6 +58,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        android:contentDescription="@string/todo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
         binding.button2.setOnClickListener(view -> {
-            Fragment fragmentName = getForegroundFragment();
-
             if (Constants.REFRESH_TOKEN.length() < 1) {
                 return;
             }
@@ -101,14 +99,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(@NonNull Call<ResponseBody> call, Throwable t) {
+            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
 
             }
         });
-    }
-
-    public Fragment getForegroundFragment(){
-        Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
-        return navHostFragment == null ? null : navHostFragment.getChildFragmentManager().getFragments().get(0);
     }
 }

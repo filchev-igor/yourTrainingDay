@@ -16,7 +16,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/gym1" />
 
     <TextView
         android:id="@+id/textView4"
@@ -26,7 +27,7 @@
         android:layout_marginTop="120dp"
         android:layout_marginEnd="153dp"
         android:layout_marginBottom="26dp"
-        android:text="Planas Salėje"
+        android:text="@string/planas_sal_je"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -15,4 +15,13 @@
     <string name="login">Login</string>
     <string name="type_username">Type username</string>
     <string name="log_out">Log out</string>
+    <string name="planai">Planai</string>
+    <string name="treneriai">Treneriai</string>
+    <string name="coach1">coach1</string>
+    <string name="coach2">coach2</string>
+    <string name="gym1">gym1</string>
+    <string name="planas_sal_je">Planas Salėje</string>
+    <string name="todo">TODO</string>
+    <string name="planas_namie">Planas Namie</string>
+    <string name="vartotojo_puslap">Į vartotojo puslapį</string>
 </resources>
