@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.yourtrainingday.databinding.FragmentLoginBinding;
 
@@ -45,7 +45,11 @@ public class FragmentLogin extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.button.setOnClickListener(view1 -> getAccessToken());
+        binding.button.setOnClickListener(view1 -> {
+            NavHostFragment.findNavController(FragmentLogin.this)
+                    .navigate(R.id.action_userPageFragment_to_planaiFragment);
+            //getAccessToken(FragmentLogin.this)
+        });
     }
 
     @Override
@@ -58,7 +62,7 @@ public class FragmentLogin extends Fragment {
         etPassword = null;
     }
 
-    public void getAccessToken() {
+    public void getAccessToken(FragmentLogin fragmentLogin) {
         GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
         String username = etUsername.getText().toString();
@@ -79,6 +83,10 @@ public class FragmentLogin extends Fragment {
                     assert response.body() != null;
                     Constants.REFRESH_TOKEN = response.body().getRefreshToken();
 
+                    NavHostFragment.findNavController(fragmentLogin)
+                            .navigate(R.id.action_userPageFragment_to_planaiFragment);
+
+                    /*
                     Fragment newFragment = new UserPageFragment();
 
                     FragmentTransaction transaction = requireActivity()
@@ -91,6 +99,8 @@ public class FragmentLogin extends Fragment {
                     binding.button.setVisibility(View.GONE);
                     binding.editTextTextPersonName.setVisibility(View.GONE);
                     binding.editTextTextPassword.setVisibility(View.GONE);
+
+                     */
 
                 }
                 else {
