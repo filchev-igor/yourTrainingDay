@@ -5,12 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.yourtrainingday.databinding.FragmentLoginBinding;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FragmentLogin extends Fragment {
     private EditText etUsername;
@@ -62,8 +67,6 @@ public class FragmentLogin extends Fragment {
         NavHostFragment
                 .findNavController(FragmentLogin.this)
                 .navigate(R.id.secondFragment);
-                //.setPopUpTo(findNavController().graph.startDestination, true).build());
-
 
         /*
         Fragment newFragment = new FirstFragment();
@@ -86,7 +89,7 @@ public class FragmentLogin extends Fragment {
                  */
 
 
-        /*
+
         Call<AccessToken> call1 = service.getAccessToken(
                 "Login",
                 "password",
@@ -99,9 +102,9 @@ public class FragmentLogin extends Fragment {
             @Override
             public void onResponse(@NonNull Call<AccessToken> call, @NonNull Response<AccessToken> response) {
                 if (response.isSuccessful()) {
-                    Intent intent = new Intent(getActivity(), SecondFragment.class);
-                    Intent intent2 = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent2);
+                    NavHostFragment
+                            .findNavController(FragmentLogin.this)
+                            .navigate(R.id.secondFragment);
                 }
                 else {
                     Toast.makeText(getActivity(), "onResponse error:", Toast.LENGTH_LONG).show();
@@ -115,7 +118,5 @@ public class FragmentLogin extends Fragment {
                 call.cancel();
             }
         });
-
-         */
     }
 }

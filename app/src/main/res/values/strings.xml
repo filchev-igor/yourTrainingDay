@@ -14,4 +14,5 @@
     <string name="type_password">Type password</string>
     <string name="login">Login</string>
     <string name="type_username">Type username</string>
+    <string name="log_out">Log out</string>
 </resources>
