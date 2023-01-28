@@ -1,13 +1,13 @@
 package com.example.yourtrainingday;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
-import com.google.android.material.snackbar.Snackbar;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -15,8 +15,10 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.yourtrainingday.databinding.ActivityMainBinding;
 
-import android.view.Menu;
-import android.view.MenuItem;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,16 +34,20 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
+        //binding.button2.setVisibility(View.GONE);
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+        binding.button2.setOnClickListener(view -> {
+            Fragment fragmentName = getForegroundFragment();
+
+            if (Constants.REFRESH_TOKEN.length() < 1) {
+                return;
             }
+
+            logout();
         });
     }
 
@@ -72,5 +78,37 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void logout() {
+        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
+
+        Call<ResponseBody> call = service.logout(Constants.CLIENT_ID, Constants.REFRESH_TOKEN, Constants.CLIENT_SECRET);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    Constants.REFRESH_TOKEN = "";
+
+                    Fragment newFragment = new FragmentLogin();
+
+                    FragmentTransaction transaction = getSupportFragmentManager()
+                            .beginTransaction();
+                    transaction.replace(R.id.main_container, newFragment);
+                    transaction.setPrimaryNavigationFragment(newFragment);
+                    transaction.commit();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public Fragment getForegroundFragment(){
+        Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
+        return navHostFragment == null ? null : navHostFragment.getChildFragmentManager().getFragments().get(0);
     }
 }
