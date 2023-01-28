@@ -11,21 +11,6 @@
         android:layout_height="wrap_content"
         android:theme="@style/Theme.YourTrainingDay.AppBarOverlay">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.YourTrainingDay.PopupOverlay" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:text="@string/log_out" />
-
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
@@ -38,5 +23,24 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         app:srcCompat="@android:drawable/ic_dialog_email" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/Theme.YourTrainingDay.PopupOverlay">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:text="@string/log_out"
+            android:textColor="@color/black"
+            android:visibility="visible"
+            android:layout_gravity="end"
+            tools:visibility="visible" />
+    </androidx.appcompat.widget.Toolbar>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
