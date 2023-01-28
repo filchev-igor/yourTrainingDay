@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserPageFragment"
+
+
+    >
+
+    <Button
+        android:id="@+id/button_planai"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="48dp"
+        android:text="@string/planai"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_treneriai"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_treneriai"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="499dp"
+        android:text="@string/treneriai"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_planai" />
+</androidx.constraintlayout.widget.ConstraintLayout>

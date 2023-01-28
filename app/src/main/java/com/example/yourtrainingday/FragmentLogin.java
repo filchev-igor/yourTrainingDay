@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.yourtrainingday.databinding.FragmentLoginBinding;
 
@@ -45,17 +45,17 @@ public class FragmentLogin extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.button.setOnClickListener(view1 -> getAccessToken());
+        binding.button.setOnClickListener(view12 -> getAccessToken());
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
 
-        binding = null;
-
         etUsername = null;
         etPassword = null;
+
+        binding = null;
     }
 
     public void getAccessToken() {
@@ -79,18 +79,8 @@ public class FragmentLogin extends Fragment {
                     assert response.body() != null;
                     Constants.REFRESH_TOKEN = response.body().getRefreshToken();
 
-                    Fragment newFragment = new FirstFragment();
-
-                    FragmentTransaction transaction = requireActivity()
-                            .getSupportFragmentManager()
-                            .beginTransaction();
-                    transaction.replace(R.id.main_container, newFragment);
-                    transaction.setPrimaryNavigationFragment(newFragment);
-                    transaction.commit();
-
-                    binding.button.setVisibility(View.GONE);
-                    binding.editTextTextPersonName.setVisibility(View.GONE);
-                    binding.editTextTextPassword.setVisibility(View.GONE);
+                    NavHostFragment.findNavController(FragmentLogin.this)
+                            .navigate(R.id.action_fragmentLogin_to_userPageFragment);
 
                 }
                 else {
