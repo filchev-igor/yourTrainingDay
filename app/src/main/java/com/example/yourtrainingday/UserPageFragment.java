@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.yourtrainingday.databinding.FragmentUserPageBinding;
@@ -27,7 +26,7 @@ public class UserPageFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.buttonPlanai.setOnClickListener(view12 -> NavHostFragment.findNavController(UserPageFragment.this)
-                        .navigate(R.id.action_userPageFragment_to_planaiFragment));
+                .navigate(R.id.action_userPageFragment_to_planaiFragment));
 
         binding.buttonTreneriai.setOnClickListener(view14 -> NavHostFragment.findNavController(UserPageFragment.this)
             .navigate(R.id.action_userPageFragment_to_coachFragment));
