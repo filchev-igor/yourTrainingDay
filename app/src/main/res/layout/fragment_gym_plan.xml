@@ -8,28 +8,161 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="366dp"
-        android:layout_height="286dp"
-        android:layout_marginTop="165dp"
-        android:layout_marginBottom="280dp"
-        android:src="@drawable/plangym"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/gym1" />
-
-    <TextView
-        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="174dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="153dp"
-        android:layout_marginBottom="26dp"
-        android:text="@string/planas_sal_je"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/sportPlanPhoto"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="59dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sporto planas Namie"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="359dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="52dp"
+        android:layout_height="50dp"
+        android:src="@drawable/flag"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="429dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="52dp"
+        android:layout_height="50dp"
+        android:src="@drawable/calendar"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="507dp" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="331dp"
+        android:layout_height="81dp"
+        android:text="Šis sporto planas yra sukurtas patogiai užsiimti fizine veikla namuose "
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="419dp" />
+
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 Sav."
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="523dp" />
+
+    <Button
+        android:id="@+id/background"
+        android:layout_width="417dp"
+        android:layout_height="238dp"
+        android:backgroundTint="#c2c0c0"
+        android:text=""
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="580dp" />
+
+    <Button
+        android:id="@+id/Koju_Treniruote"
+        android:layout_width="417dp"
+        android:layout_height="60dp"
+
+        android:text="Kojų treniruotė"
+        android:textSize="23sp"
+        android:textColor="@color/black"
+        android:textAlignment="viewStart"
+        android:textStyle="bold"
+        android:backgroundTint="@color/white"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="600dp" />
+
+    <Button
+        android:id="@+id/Krutines_Treniruote"
+        android:layout_width="417dp"
+        android:layout_height="60dp"
+        android:text="Krutinės treniruotė"
+        android:textSize="23sp"
+        android:textColor="@color/black"
+        android:textAlignment="viewStart"
+        android:textStyle="bold"
+        android:backgroundTint="@color/white"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="670dp" />
+
+    <Button
+        android:id="@+id/Cardio"
+        android:layout_width="417dp"
+        android:layout_height="60dp"
+        android:text="Kardio"
+        android:textStyle="bold"
+        android:textSize="23sp"
+        android:textColor="@color/black"
+        android:textAlignment="viewStart"
+        android:backgroundTint="@color/white"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="740dp" />
+
+    <ImageView
+        android:id="@+id/dropdown1"
+        android:layout_width="65dp"
+        android:layout_height="35dp"
+        android:elevation="2dp"
+        android:src="@drawable/dropdown"
+        tools:layout_editor_absoluteX="335dp"
+        tools:layout_editor_absoluteY="614dp" />
+
+    <ImageView
+        android:id="@+id/dropdown2"
+        android:layout_width="65dp"
+        android:layout_height="35dp"
+        android:elevation="2dp"
+        android:src="@drawable/dropdown"
+        tools:layout_editor_absoluteX="335dp"
+        tools:layout_editor_absoluteY="684dp" />
+
+    <ImageView
+        android:id="@+id/dropdown3"
+        android:layout_width="65dp"
+        android:layout_height="35dp"
+        android:elevation="2dp"
+        android:src="@drawable/dropdown"
+        tools:layout_editor_absoluteX="335dp"
+        tools:layout_editor_absoluteY="754dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/prideti"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:text="Pridėti Planą"
+        android:textColor="@color/black"
+        android:background="@drawable/prideti_button"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="822dp" />
+
+
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:elevation="2dp"
+        android:src="@drawable/done_foreground"
+        tools:layout_editor_absoluteX="270dp"
+        tools:layout_editor_absoluteY="801dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
